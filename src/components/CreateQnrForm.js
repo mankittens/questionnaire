@@ -39,7 +39,7 @@ function isValidJsonString(x) {
   return true
 }
 
-function CreateQnrForm({ onSubmit }) {
+function CreateQnrForm({ onSubmit, status }) {
   return (
     <Wrapper>
       <Formik
@@ -87,15 +87,20 @@ function CreateQnrForm({ onSubmit }) {
           </Form>
         )}
       </Formik>
+      {status === 'FAILURE' && (
+        <p>An error occured. Please check the format of your JSON form.</p>
+      )}
     </Wrapper>
   )
 }
+
+const mapStateToProps = ({ qnr: { status } }) => ({ status })
 
 const mapDispatchToProps = {
   onSubmit: createQnr,
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(CreateQnrForm)
