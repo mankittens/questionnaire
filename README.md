@@ -1,4 +1,77 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Setup
+
+_This setup assumes that you have the latest versions of node (v10), npm (v6), and git (v2) installed._
+
+### Installing the Front-End
+
+1. `git clone https://github.com/mankittens/questionnaire.git`
+2. `cd questionnaire`
+3. `npm i`
+4. `npm start`
+
+### Installing the Backend
+
+1. `git clone https://github.com/mankittens/questionnaire-api.git`
+2. `cd questionnaire-api`
+3. `npm i`
+4. `node index.js`
+
+### Creating a Questionnaire
+
+1. Go to `http://localhost:3000/`.
+2. Follow the instructions on the page. Here is some example JSON that will create a form:
+
+```json
+{
+  "displayName": "Basic esports knowledge",
+  "sections": [
+    {
+      "displayName": "League of Legends",
+      "questions": [
+        {
+          "type": "freetext",
+          "text": "Discuss the suitability of League of Legends as high school esport"
+        },
+        {
+          "type": "multi",
+          "text": "In which genre would you classify League of Legends ?",
+          "options": [
+            {
+              "text": "First Person Shooter"
+            },
+            {
+              "text": "MOBA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "displayName": "Esports (general)",
+      "questions": [
+        {
+          "type": "multi",
+          "text": "Which spelling of ’esports’ are acceptable: 1. Esports, 2. e-sports",
+          "options": [
+            {
+              "text": "1"
+            },
+            {
+              "text": "1 and 2"
+            },
+            {
+              "text": "2"
+            },
+            {
+              "text": "None"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 ## Available Scripts
 
